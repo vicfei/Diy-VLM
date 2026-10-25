@@ -22,7 +22,7 @@
 └─────────────────┘
 ```
 
-参数量：ViT 70,858 + 投影层 8,320 + LLM 102,938 ≈ **18.2 万**。
+参数量：ViT 70,858 + 投影层 8,320 + LLM 104,228 = **183,406（约 18.3 万，可训练，词表 36）**。
 
 相对原始代码的四处必要改进：
 
@@ -163,6 +163,13 @@ python MiniVLM_train.py    # MNIST 由 torchvision 自动下载到 ./data
 - `mini_vlm.py`：CharTokenizer / RoPE-GPT / ViTEncoder / Projector / MiniVLM
 - `MiniVLM_train.py`：四个训练阶段 + 评估，产出 `ckpt/mini_vlm_final.pt` 与 `ckpt/train_log.json`
 - 全程 CPU 约 10 分钟，无需 GPU
+
+## 模型权重
+
+- HuggingFace：https://huggingface.co/cnfeichen/Diy-VLM
+- ModelScope：https://modelscope.cn/models/cnfeichen/Diy-VLM
+
+权重 <1MB，含 state_dict 与字表；加载示例见模型卡。
 
 ## 8. 配套练习：vlm_katas
 
